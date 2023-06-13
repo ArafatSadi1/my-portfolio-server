@@ -22,6 +22,10 @@ async function run() {
     await client.connect();
     const projectCollection = client.db("myPortfolio").collection("projects");
 
+    app.get('/test', async(req, res)=> {
+      res.send('test message green')
+    })
+
     app.get('/projects', async(req, res)=>{
         const result = await projectCollection.find({}).toArray();
         res.send(result);
